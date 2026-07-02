@@ -6,7 +6,9 @@ import davidepan.beu5w1d4.entities.Topping;
 import davidepan.beu5w1d4.repositories.BevandaRepository;
 import davidepan.beu5w1d4.repositories.PizzaRepository;
 import davidepan.beu5w1d4.repositories.ToppingRepository;
+import davidepan.beu5w1d4.services.PizzaService;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +19,9 @@ import java.util.List;
 @Slf4j
 @Component
 public class MenuRunners implements CommandLineRunner {
+
+    @Autowired
+    private PizzaService pizzaService;
 
     @Autowired
     private ApplicationContext ctx;
@@ -51,11 +56,11 @@ public class MenuRunners implements CommandLineRunner {
 
         try {
             log.info("tentativo prima query per pizze che costano meno di 6.5");
-            List<Pizza> pizzaCheap = pizzaRepository.findByPrezzoLessThan(6.5);
+            List<Pizza> pizzaCheap = pizzaService.getPizzeEconomiche(6.5);
             pizzaCheap.forEach(System.out::println);
 
             log.info("tentativo seconda query per cercare una pizza per nome");
-            List<Pizza> pizzaDiavola = pizzaRepository.cercaPizza("Diavola");
+            List<Pizza> pizzaDiavola = pizzaService.getPizzaPerNome("Diavola");
             pizzaDiavola.forEach(System.out::println);
         } catch (Exception e){
             log.error("Errore nelle query", e);
