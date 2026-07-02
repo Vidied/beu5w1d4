@@ -47,7 +47,7 @@ public class MenuConfig {
         tL.add(toppingPomodoro());
         tL.add(toppingFiorDiLatte());
         tL.add(toppingSalame());
-        return new Pizza("Diavola", 6.49, 850, tL);
+        return new Pizza("Diavola", 7.49, 850, tL);
     }
 
     @Bean(name = "estate_limone")
