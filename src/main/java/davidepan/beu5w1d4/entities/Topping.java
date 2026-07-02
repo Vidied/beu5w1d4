@@ -14,7 +14,7 @@ public class Topping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.PRIVATE)
-    private long id;
+    private Long id;
 
     private String name;
     private int calorie;

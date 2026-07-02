@@ -16,8 +16,8 @@ public class Pizza {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.PRIVATE)h
-    private long id;
+    @Setter(AccessLevel.PRIVATE)
+    private Long id;
 
     private String nome;
     private double prezzo;
