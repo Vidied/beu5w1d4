@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "pizze")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "toppings")
 @NoArgsConstructor
 public class Pizza {
 
